@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
+//import { CalendarIcon } from '@chakra-ui/icons'
 import { Heading, Box, Image, Text, Spacer, Tag } from '@chakra-ui/react';
-
-
 import logo from './assets/logo.png'
 import * as API from './services/launches';
 
@@ -46,14 +45,18 @@ export function App() {
           borderRadius = "lg"
           
         >
-          <Box display="flex">
-            <Text>
-              Mission <strong>{launch.mission_name}</strong>({launch.launch_year})
+          <Box>
+            <Text fontSize="2x1">
+              Mission <strong>{launch.mission_name}</strong>(
+                {launch.launch_year})
             </Text>
-            <Spacer></Spacer>
-            <Tag></Tag>
+            <Spacer />
+            <Tag p={4} colorScheme={launch.launch_success ? "green" : "red"}>
+              {launch.launch_success ? "Exitosa" : "Fallido"}
+            </Tag>
           </Box>
-          {launch.mission_name} ({launch.launch_year})
+
+       
         </Box>
       ))}
     </section>
