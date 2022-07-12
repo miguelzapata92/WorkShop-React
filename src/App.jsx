@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Heading } from '@chakra-ui/react';
+import { Heading, Box, Image, Text, Spacer, Tag } from '@chakra-ui/react';
+
+
 import logo from './assets/logo.png'
 import * as API from './services/launches';
 
@@ -29,16 +31,32 @@ export function App() {
   cada elemento*/ 
   return (
    <>
-   <img src={logo} width={300}/>
-    <h1>SpaceX Launches</h1>
-    <ul>
+   <Image m = {4} p = {4} src={logo} width={300}/>
+    <Heading as= "h1" size = "lg">
+      SpaceX Launches
+    </Heading>
+    <section>
     
       {launches.map((launch) =>( 
-        <li key={launch.flight_number}>
+        <Box 
+          key={launch.flight_number}
+          bg = "gray.100"
+          p = {4}
+          m = {4}
+          borderRadius = "lg"
+          
+        >
+          <Box display="flex">
+            <Text>
+              Mission <strong>{launch.mission_name}</strong>({launch.launch_year})
+            </Text>
+            <Spacer></Spacer>
+            <Tag></Tag>
+          </Box>
           {launch.mission_name} ({launch.launch_year})
-        </li>
+        </Box>
       ))}
-    </ul>
+    </section>
    </>
   )
 }
