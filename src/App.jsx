@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-//import { CalendarIcon } from '@chakra-ui/icons'
+import { FcCalendar } from "react-icons/fc";
+import { CalendarIcon } from '@chakra-ui/icons'
 import { Heading, Box, Image, Text, Spacer, Tag } from '@chakra-ui/react';
 import logo from './assets/logo.png'
 import * as API from './services/launches';
@@ -45,7 +46,7 @@ export function App() {
           borderRadius = "lg"
           
         >
-          <Box>
+          <Box display="flex">
             <Text fontSize="2x1">
               Mission <strong>{launch.mission_name}</strong>(
                 {launch.launch_year})
@@ -54,6 +55,13 @@ export function App() {
             <Tag p={4} colorScheme={launch.launch_success ? "green" : "red"}>
               {launch.launch_success ? "Exitosa" : "Fallido"}
             </Tag>
+          </Box>
+          <Box>
+            <FcCalendar/>
+            <Text fontSize="sm" >
+              {launch.launch_date_local.split("T")[0]}
+          
+            </Text>
           </Box>
 
        
