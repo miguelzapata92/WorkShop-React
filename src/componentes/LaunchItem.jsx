@@ -13,7 +13,7 @@ export function LaunchItem(launch){
             >
 
             <Box display="flex">
-            <Text fontSize="2x1">
+            <Text fontSize="24">
                 Mission <strong>{launch.mission_name}</strong>(
                 {launch.launch_year})
             </Text>
