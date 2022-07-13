@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import { FcCalendar } from "react-icons/fc";
-import { CalendarIcon } from '@chakra-ui/icons'
-import { Heading, Box, Image, Text, Spacer, Tag } from '@chakra-ui/react';
+import { Heading, Image } from '@chakra-ui/react';
 import logo from './assets/logo.png'
 import * as API from './services/launches';
+import { LaunchItem } from './componentes/LaunchItem';
 
 
 /*
@@ -38,34 +37,7 @@ export function App() {
     <section>
     
       {launches.map((launch) =>( 
-        <Box 
-          key={launch.flight_number}
-          bg = "gray.100"
-          p = {4}
-          m = {4}
-          borderRadius = "lg"
-          
-        >
-          <Box display="flex">
-            <Text fontSize="2x1">
-              Mission <strong>{launch.mission_name}</strong>(
-                {launch.launch_year})
-            </Text>
-            <Spacer />
-            <Tag p={4} colorScheme={launch.launch_success ? "green" : "red"}>
-              {launch.launch_success ? "Exitosa" : "Fallido"}
-            </Tag>
-          </Box>
-          <Box>
-            <FcCalendar/>
-            <Text fontSize="sm" >
-              {launch.launch_date_local.split("T")[0]}
-          
-            </Text>
-          </Box>
-
-       
-        </Box>
+        <LaunchItem key= {launch.flight_number}{...launch}/>
       ))}
     </section>
    </>
