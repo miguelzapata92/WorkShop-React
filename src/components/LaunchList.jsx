@@ -11,7 +11,7 @@ export function LaunchList(){
 
     useEffect(() => {
         //cuando acaba la promesa vamos a obtener los datos y se los pasamos al estado
-        API.getAllLaunches().then(setLaunches);
+        API.getAllLaunches().then(setLaunches).catch(console.log);
         //así como recibe una arrow function de primer argumento, el segundo es un array de dependencias
         //Si el array está vacío, el use effect se va a ejecutar cuando se crea el componente
         //si en el array ponemos otra dependencia, llama a la funcion cada vez que se actualice la variable

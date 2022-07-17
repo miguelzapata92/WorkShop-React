@@ -1,4 +1,5 @@
 import { FcCalendar } from "react-icons/fc";
+import { Link } from "react-router-dom";
 import { Box, Text, Spacer, Tag, Flex, Button } from '@chakra-ui/react';
 
 
@@ -28,7 +29,12 @@ export function LaunchItem(launch){
                     {launch.launch_date_local.split("T")[0]}
                 </Text>
             </Flex>
-            <Button colorScheme="blue">Detalle de Misión</Button>
+
+            <Link to = {`/launch/${launch.flight_number}`}>
+            <Button colorScheme="blue">
+                Detalle de Misión
+            </Button>
+            </Link>
         </Box>
     )
 }
